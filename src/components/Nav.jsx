@@ -1,19 +1,19 @@
-import { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
+import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import styled from "styled-components";
 
 const Nav = () => {
   const [show, setShow] = useState(false);
   const { pathname } = useLocation();
   const navigate = useNavigate();
-  const [searchValue, setSearchValue] = useState('');
+  const [searchValue, setSearchValue] = useState("");
 
   useEffect(() => {
-    window.addEventListener('scroll', () => {
+    window.addEventListener("scroll", () => {
       window.scrollY > 50 ? setShow(true) : setShow(false);
     });
     return () => {
-      window.removeEventListener('scroll', () => {});
+      window.removeEventListener("scroll", () => {});
     };
   }, []);
 
@@ -25,10 +25,10 @@ const Nav = () => {
   return (
     <NavWrapper show={show}>
       <Logo>
-        <img alt='Disney Plus Logo' src='/images/logo.svg' onClick={() => (window.location.href = '/')} />
+        <img alt="Disney Plus Logo" src="/images/logo.svg" onClick={() => (window.location.href = "/")} />
       </Logo>
 
-      {pathname === '/' ? <Login></Login> : <Input onChange={handleChange} />}
+      {pathname === "/" ? <Login></Login> : <Input onChange={handleChange} />}
     </NavWrapper>
   );
 };
@@ -42,10 +42,10 @@ const Input = styled.input`
   border-radius: 5px;
   color: white;
   padding: 5px;
-  border: none;
+  border: 1px solid gray;
 `;
 
-const Login = styled.login`
+const Login = styled.button`
   background-color: rgba(0, 0, 0, 0.6);
   padding: 8px 16px;
   text-transform: uppercase;
@@ -67,7 +67,7 @@ const NavWrapper = styled.nav`
   left: 0;
   right: 0;
   height: 70px;
-  background-color: ${(props) => (props.show ? '#090b13' : 'transparent')};
+  background-color: ${(props) => (props.show ? "#090b13" : "transparent")};
   display: flex;
   justify-content: space-between;
   align-items: center;
