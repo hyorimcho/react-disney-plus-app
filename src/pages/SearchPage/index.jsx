@@ -13,7 +13,7 @@ const SearchPage = () => {
   };
 
   let query = useQuery();
-  const searchTerm = query.get("q");
+  const searchTerm = useDebounce(query.get("q"), 500);
 
   useEffect(() => {
     if (searchTerm) {
