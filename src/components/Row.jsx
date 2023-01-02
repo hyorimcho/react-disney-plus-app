@@ -61,10 +61,9 @@ const Row = ({ title, id, fetchUrl }) => {
       >
         <Content>
           {movies.map((movie) => (
-            <SwiperSlide>
+            <SwiperSlide key={movie.id}>
               <Wrap>
                 <img
-                  key={movie.id}
                   className="row__poster"
                   src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
                   alt={movie.name}
